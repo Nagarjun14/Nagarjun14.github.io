@@ -1,0 +1,45 @@
+<div class="main">
+  <div class="list">
+    <mat-card class="card">
+      <mat-card-content>
+        <h2 class="heading">Pending Tasks</h2>
+        <div
+          *ngFor="let task of pendingTasksList; let i = index"
+          class="content"
+        >
+          <h3>
+            {{ i + 1 }}. {{ task }}
+            <button mat-button class="mark-button">
+              <mat-icon>star_border</mat-icon>
+            </button>
+            <button mat-button class="done-button" (click)="deleteTask(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <mat-divider></mat-divider>
+          </h3>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="list">
+    <mat-card class="card">
+      <mat-card-content>
+        <h2 class="heading">Completed Tasks</h2>
+        <div
+          *ngFor="let task of completedTasksList; let i = index"
+          class="content"
+        >
+          <s
+            ><h3>
+              {{ i + 1 }}. {{ task }}
+              <button mat-button class="done-button">
+                <mat-icon (click)="unarchiveTask(i)">undo</mat-icon>
+              </button>
+              <mat-divider></mat-divider></h3
+          ></s>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
